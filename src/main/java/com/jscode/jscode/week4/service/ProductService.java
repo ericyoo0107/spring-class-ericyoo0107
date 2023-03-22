@@ -22,4 +22,9 @@ public class ProductService {
     {
         return productRepository.findAll();
     }
+
+    public Product findOne(int idx)
+    {
+        return productRepository.findOne(idx);
+    }
 }

@@ -22,4 +22,9 @@ public class ProductRepository {
     {
         return productRepository;
     }
+
+    public Product findOne(int idx)
+    {
+        return productRepository.get(idx);
+    }
 }
