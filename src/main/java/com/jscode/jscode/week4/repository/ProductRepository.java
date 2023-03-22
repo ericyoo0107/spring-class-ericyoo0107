@@ -9,12 +9,17 @@ import java.util.*;
 @Repository
 @Slf4j
 public class ProductRepository {
-    private List productRepository = new ArrayList();
+    private List<Product> productRepository = new ArrayList();
 
     public Product saveProduct(Product product)
     {
         productRepository.add(product);
         log.info(String.valueOf(product));
         return product;
+    }
+
+    public List<Product> findAll()
+    {
+        return productRepository;
     }
 }

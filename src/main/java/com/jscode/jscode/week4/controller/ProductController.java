@@ -21,10 +21,9 @@ public class ProductController {
     {
         productService.saveProduct(product);
     }
-
-//    @GetMapping("/api/products")
-//    public List<Product> showAllProduct()
-//    {
-//        return productService.findAll();
-//    }
+    @GetMapping("/api/products")
+    public List<Product> showAllProduct()
+    {
+        return productService.findAll();
+    }
 }
