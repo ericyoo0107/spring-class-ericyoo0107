@@ -11,28 +11,31 @@ import java.util.*;
 public class ProductRepository {
     private List<Product> productRepository = new ArrayList();
 
-    public void saveProduct(Product product)
-    {
+    public void saveProduct(Product product) {
         productRepository.add(product);
         log.info(String.valueOf(product));
     }
 
-    public List<Product> findAll()
-    {
+    public List<Product> findAll() {
         return productRepository;
     }
 
-    public Product findOne(int idx)
-    {
+    public Product findOne(int idx) {
         return productRepository.get(idx);
     }
 
-    public boolean findSameProductName(Product product)
-    {
+    public boolean findSameProductName(Product product) {
         for (Product tempProduct : productRepository) {
-            if(tempProduct.getName().equals(product.getName())) //문자열은 ==를 통해 비교하면 안됨
+            if (tempProduct.getName().equals(product.getName())) //문자열은 ==를 통해 비교하면 안됨
                 return true;
         }
         return false;
+    }
+
+    public int findByName(String name) {
+        for (int i = 0; i < productRepository.size(); i++) {
+            if (productRepository.get(i).getName().equals(name)) return i;
+        }
+        return -1;
     }
 }
