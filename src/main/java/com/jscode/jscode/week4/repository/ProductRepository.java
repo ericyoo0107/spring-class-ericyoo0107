@@ -4,18 +4,16 @@ import com.jscode.jscode.week4.dto.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 @Slf4j
 public class ProductRepository {
-    private Map<Integer, Product> productRepository = new HashMap<>();
+    private List productRepository = new ArrayList();
 
-    public Product saveProduct(Integer id, Product product)
+    public Product saveProduct(Product product)
     {
-        productRepository.put(id, product);
-        log.info(String.valueOf(id));
+        productRepository.add(product);
         log.info(String.valueOf(product));
         return product;
     }
