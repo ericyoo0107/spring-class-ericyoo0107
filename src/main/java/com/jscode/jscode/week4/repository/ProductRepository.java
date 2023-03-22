@@ -11,11 +11,10 @@ import java.util.*;
 public class ProductRepository {
     private List<Product> productRepository = new ArrayList();
 
-    public Product saveProduct(Product product)
+    public void saveProduct(Product product)
     {
         productRepository.add(product);
         log.info(String.valueOf(product));
-        return product;
     }
 
     public List<Product> findAll()
@@ -26,5 +25,14 @@ public class ProductRepository {
     public Product findOne(int idx)
     {
         return productRepository.get(idx);
+    }
+
+    public boolean findSameProductName(Product product)
+    {
+        for (Product tempProduct : productRepository) {
+            if(tempProduct.getName().equals(product.getName())) //문자열은 ==를 통해 비교하면 안됨
+                return true;
+        }
+        return false;
     }
 }

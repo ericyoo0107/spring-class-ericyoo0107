@@ -13,10 +13,14 @@ import java.util.Map;
 public class ProductService {
     private final ProductRepository productRepository;
     //상품등록
-    public void saveProduct(Product product)
-    {
+    public void saveProduct(Product product) {
+        if(productRepository.findSameProductName(product))
+        {
+            throw new RuntimeException();
+        }
         productRepository.saveProduct(product);
     }
+
 
     public List<Product> findAll()
     {
